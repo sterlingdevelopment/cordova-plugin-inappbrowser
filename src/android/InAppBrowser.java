@@ -109,6 +109,7 @@ public class InAppBrowser extends CordovaPlugin {
     private ValueCallback<Uri[]> mUploadCallbackLollipop;
     private final static int FILECHOOSER_REQUESTCODE = 1;
     private final static int FILECHOOSER_REQUESTCODE_LOLLIPOP = 2;
+    private Map <String, String> extraHeaders;
 
     /**
      * Executes the request and returns PluginResult.
@@ -128,6 +129,8 @@ public class InAppBrowser extends CordovaPlugin {
             }
             final String target = t;
             final HashMap<String, Boolean> features = parseFeature(args.optString(2));
+
+            extraHeaders = parseHeaders(args.optString(3));
 
             LOG.d(LOG_TAG, "target = " + target);
 
@@ -386,6 +389,34 @@ public class InAppBrowser extends CordovaPlugin {
     }
 
     /**
+     * Put the list of headers into a map
+     *
+     * @param headerString
+     * @return
+     */
+    private Map<String, String> parseHeaders(String headerString) {
+        if (headerString.equals(NULL)) {
+            Map<String, String> map = new HashMap<String, String>();
+            return map;
+        } else {
+            Map<String, String> map = new HashMap<String, String>();
+            StringTokenizer features = new StringTokenizer(headerString, ",");
+            StringTokenizer option;
+            while(features.hasMoreElements()) {
+                option = new StringTokenizer(features.nextToken(), ":");
+                if (option.hasMoreElements()) {
+                    String key = option.nextToken();
+                    String value = option.nextToken();
+                    map.put(key, value);
+                }
+            }
+            return map;
+        }
+    }
+
+
+
+    /**
      * Display a new browser with the specified URL.
      *
      * @param url the url to load.
@@ -496,9 +527,9 @@ public class InAppBrowser extends CordovaPlugin {
         imm.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
 
         if (!url.startsWith("http") && !url.startsWith("file:")) {
-            this.inAppWebView.loadUrl("http://" + url);
+            this.inAppWebView.loadUrl("http://" + url,extraHeaders);
         } else {
-            this.inAppWebView.loadUrl(url);
+            this.inAppWebView.loadUrl(url,extraHeaders);
         }
         this.inAppWebView.requestFocus();
     }
