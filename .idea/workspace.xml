@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d830580-0f8f-4637-87f2-d54ea837574e" name="Default" comment="" />
+    <list default="true" id="9d830580-0f8f-4637-87f2-d54ea837574e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/android/InAppBrowser.java" afterPath="$PROJECT_DIR$/src/android/InAppBrowser.java" />
+    </list>
     <ignored path="cordova-plugin-inappbrowser.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -33,13 +35,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InAppBrowser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InAppBrowser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="531" column="54" selection-start-line="531" selection-start-column="54" selection-end-line="531" selection-end-column="54" />
+            <state relative-caret-position="199">
+              <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
               <folding>
-                <element signature="e#0#49778#0" expanded="true" />
+                <element signature="e#0#49800#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
@@ -85,9 +87,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/www/inappbrowser.js" />
-        <option value="$PROJECT_DIR$/src/android/InAppBrowser.java" />
         <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.m" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/android/InAppBrowser.java" />
       </list>
     </option>
   </component>
@@ -157,7 +159,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -172,6 +174,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,12 +295,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490996793637</updated>
-      <workItem from="1490996794991" duration="1891000" />
+      <workItem from="1490996794991" duration="2818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1891000" />
+    <option name="totallyTimeSpent" value="2818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="23" width="960" height="976" extended-state="0" />
@@ -354,16 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="531" column="54" selection-start-line="531" selection-start-column="54" selection-end-line="531" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#49778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -384,6 +380,16 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#49800#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
