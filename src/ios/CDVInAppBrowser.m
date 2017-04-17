@@ -210,7 +210,7 @@
         self.inAppBrowserViewController.webView.suppressesIncrementalRendering = browserOptions.suppressesincrementalrendering;
     }
 
-    [self.inAppBrowserViewController navigateTo:url headers:headers];
+    [self.inAppBrowserViewController navigateToNew:url withHeaders:headers];
     if (!browserOptions.hidden) {
         [self show:nil];
     }
