@@ -843,7 +843,7 @@
     }
 }
 
-- (void)navigateToNew:(NSURL*)url headers:(NSString*)headers
+- (void)navigateToNew:(NSURL*)url withHeaders:(NSString*)headers
 {
     //NSURLRequest* request = [NSURLRequest requestWithURL:url];
 
