@@ -23,14 +23,27 @@
     <favorites_list name="cordova-plugin-inappbrowser" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="InAppBrowser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="843" column="15" selection-start-line="843" selection-start-column="15" selection-end-line="843" selection-end-column="55" />
+            <state relative-caret-position="18270">
+              <caret line="1230" column="0" selection-start-line="1230" selection-start-column="0" selection-end-line="1230" selection-end-column="0" />
               <folding>
-                <element signature="e#0#49813#0" expanded="true" />
+                <element signature="e#0#52405#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#12861#12862#0" expanded="true" />
+                <element signature="e#12914#12915#0" expanded="true" />
+                <element signature="e#13309#13310#0" expanded="true" />
+                <element signature="e#13362#13363#0" expanded="true" />
+                <element signature="e#28376#28377#0" expanded="true" />
+                <element signature="e#28432#28433#0" expanded="true" />
+                <element signature="e#30457#30458#0" expanded="true" />
+                <element signature="e#30513#30514#0" expanded="true" />
+                <element signature="e#31857#31858#0" expanded="true" />
+                <element signature="e#31916#31917#0" expanded="true" />
+                <element signature="e#34645#34646#0" expanded="true" />
+                <element signature="e#34706#34707#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,9 +78,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="x" value="480" />
     <option name="y" value="23" />
     <option name="width" value="960" />
-    <option name="height" value="976" />
+    <option name="height" value="803" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -94,9 +108,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,6 +162,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -735,16 +749,17 @@
       <workItem from="1490996794991" duration="3998000" />
       <workItem from="1492445590574" duration="6447000" />
       <workItem from="1493413853017" duration="2770000" />
-      <workItem from="1494867802879" duration="790000" />
+      <workItem from="1494867802879" duration="794000" />
+      <workItem from="1495631429864" duration="152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14005000" />
+    <option name="totallyTimeSpent" value="14161000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="960" height="976" extended-state="0" />
-    <editor active="false" />
+    <frame x="480" y="23" width="960" height="803" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -759,7 +774,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2777778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2777778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.055555556" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -792,10 +807,46 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="843" column="15" selection-start-line="843" selection-start-column="15" selection-end-line="843" selection-end-column="55" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#49813#0" expanded="true" />
+            <element signature="e#0#52405#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#12861#12862#0" expanded="true" />
+            <element signature="e#12914#12915#0" expanded="true" />
+            <element signature="e#13309#13310#0" expanded="true" />
+            <element signature="e#13362#13363#0" expanded="true" />
+            <element signature="e#28376#28377#0" expanded="true" />
+            <element signature="e#28432#28433#0" expanded="true" />
+            <element signature="e#30457#30458#0" expanded="true" />
+            <element signature="e#30513#30514#0" expanded="true" />
+            <element signature="e#31857#31858#0" expanded="true" />
+            <element signature="e#31916#31917#0" expanded="true" />
+            <element signature="e#34645#34646#0" expanded="true" />
+            <element signature="e#34706#34707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18270">
+          <caret line="1230" column="0" selection-start-line="1230" selection-start-column="0" selection-end-line="1230" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#52405#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#12861#12862#0" expanded="true" />
+            <element signature="e#12914#12915#0" expanded="true" />
+            <element signature="e#13309#13310#0" expanded="true" />
+            <element signature="e#13362#13363#0" expanded="true" />
+            <element signature="e#28376#28377#0" expanded="true" />
+            <element signature="e#28432#28433#0" expanded="true" />
+            <element signature="e#30457#30458#0" expanded="true" />
+            <element signature="e#30513#30514#0" expanded="true" />
+            <element signature="e#31857#31858#0" expanded="true" />
+            <element signature="e#31916#31917#0" expanded="true" />
+            <element signature="e#34645#34646#0" expanded="true" />
+            <element signature="e#34706#34707#0" expanded="true" />
           </folding>
         </state>
       </provider>
