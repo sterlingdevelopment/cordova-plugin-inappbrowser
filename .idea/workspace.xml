@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9d830580-0f8f-4637-87f2-d54ea837574e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/android/InAppBrowser.java" afterPath="$PROJECT_DIR$/src/android/InAppBrowser.java" />
     </list>
     <ignored path="cordova-plugin-inappbrowser.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,28 +22,45 @@
     <favorites_list name="cordova-plugin-inappbrowser" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InAppBrowser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
+    <leaf>
+      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18270">
-              <caret line="1230" column="0" selection-start-line="1230" selection-start-column="0" selection-end-line="1230" selection-end-column="0" />
+            <state relative-caret-position="946">
+              <caret line="106" column="140" selection-start-line="106" selection-start-column="126" selection-end-line="106" selection-end-column="140" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDVInAppBrowser.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1555">
+              <caret line="791" column="39" selection-start-line="791" selection-start-column="39" selection-end-line="791" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inappbrowser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/inappbrowser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-467">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
               <folding>
-                <element signature="e#0#52405#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#12861#12862#0" expanded="true" />
-                <element signature="e#12914#12915#0" expanded="true" />
-                <element signature="e#13309#13310#0" expanded="true" />
-                <element signature="e#13362#13363#0" expanded="true" />
-                <element signature="e#28376#28377#0" expanded="true" />
-                <element signature="e#28432#28433#0" expanded="true" />
-                <element signature="e#30457#30458#0" expanded="true" />
-                <element signature="e#30513#30514#0" expanded="true" />
-                <element signature="e#31857#31858#0" expanded="true" />
-                <element signature="e#31916#31917#0" expanded="true" />
-                <element signature="e#34645#34646#0" expanded="true" />
-                <element signature="e#34706#34707#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inappbrowser.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/inappbrowser.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-540">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,9 +80,9 @@
       <list>
         <option value="$PROJECT_DIR$/www/inappbrowser.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/android/InAppBrowser.java" />
         <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.h" />
         <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.m" />
-        <option value="$PROJECT_DIR$/src/android/InAppBrowser.java" />
       </list>
     </option>
   </component>
@@ -78,10 +94,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="480" />
-    <option name="y" value="23" />
-    <option name="width" value="960" />
-    <option name="height" value="803" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -108,7 +122,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -128,41 +142,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cordova-plugin-inappbrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cordova-plugin-inappbrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cordova-plugin-inappbrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cordova-plugin-inappbrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,6 +153,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -750,16 +733,23 @@
       <workItem from="1492445590574" duration="6447000" />
       <workItem from="1493413853017" duration="2770000" />
       <workItem from="1494867802879" duration="794000" />
-      <workItem from="1495631429864" duration="152000" />
+      <workItem from="1495631429864" duration="2040000" />
+      <workItem from="1498602690923" duration="2000" />
+      <workItem from="1501346497122" duration="23000" />
+      <workItem from="1507565162315" duration="202000" />
+      <workItem from="1508343877070" duration="1000" />
+      <workItem from="1509118163864" duration="95000" />
+      <workItem from="1512916203586" duration="5000" />
+      <workItem from="1550098460667" duration="2161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14161000" />
+    <option name="totallyTimeSpent" value="18538000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="23" width="960" height="803" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -774,7 +764,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2777778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13471779" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.055555556" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -805,49 +795,37 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
+    <entry file="file://$PROJECT_DIR$/www/inappbrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-467">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
-            <element signature="e#0#52405#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#12861#12862#0" expanded="true" />
-            <element signature="e#12914#12915#0" expanded="true" />
-            <element signature="e#13309#13310#0" expanded="true" />
-            <element signature="e#13362#13363#0" expanded="true" />
-            <element signature="e#28376#28377#0" expanded="true" />
-            <element signature="e#28432#28433#0" expanded="true" />
-            <element signature="e#30457#30458#0" expanded="true" />
-            <element signature="e#30513#30514#0" expanded="true" />
-            <element signature="e#31857#31858#0" expanded="true" />
-            <element signature="e#31916#31917#0" expanded="true" />
-            <element signature="e#34645#34646#0" expanded="true" />
-            <element signature="e#34706#34707#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/android/InAppBrowser.java">
+    <entry file="file://$PROJECT_DIR$/www/inappbrowser.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18270">
-          <caret line="1230" column="0" selection-start-line="1230" selection-start-column="0" selection-end-line="1230" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#52405#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#12861#12862#0" expanded="true" />
-            <element signature="e#12914#12915#0" expanded="true" />
-            <element signature="e#13309#13310#0" expanded="true" />
-            <element signature="e#13362#13363#0" expanded="true" />
-            <element signature="e#28376#28377#0" expanded="true" />
-            <element signature="e#28432#28433#0" expanded="true" />
-            <element signature="e#30457#30458#0" expanded="true" />
-            <element signature="e#30513#30514#0" expanded="true" />
-            <element signature="e#31857#31858#0" expanded="true" />
-            <element signature="e#31916#31917#0" expanded="true" />
-            <element signature="e#34645#34646#0" expanded="true" />
-            <element signature="e#34706#34707#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-540">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="106" column="140" selection-start-line="106" selection-start-column="126" selection-end-line="106" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1555">
+          <caret line="791" column="39" selection-start-line="791" selection-start-column="39" selection-end-line="791" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

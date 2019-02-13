@@ -167,6 +167,7 @@ if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelega
 
 [self.inAppBrowserViewController showLocationBar:browserOptions.location];
 [self.inAppBrowserViewController showToolBar:browserOptions.toolbar :browserOptions.toolbarposition];
+[self.inAppBrowserViewController changeViewSize:browserOptions.height :browserOptions.weight];
 if (browserOptions.closebuttoncaption != nil) {
 [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption];
 }
@@ -771,6 +772,28 @@ webViewBounds.size.height -= TOOLBAR_HEIGHT;
 }
 }
 
+
+- (void)changeViewSize:(NSInteger*) height : (NSInteger*) width
+{
+
+  CGRect webViewBounds = self.view.bounds;
+
+  if(height > 0){
+
+    webViewBounds.size.height = webViewBounds.size.height * (height / 100);
+
+  }
+  if(width > 0){
+
+    webViewBounds.size.width = webViewBounds.size.width * (width / 100);
+
+  }
+
+  [self setWebViewFrame:webViewBounds];
+
+}
+
+
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition
 {
   CGRect toolbarFrame = self.toolbar.frame;
@@ -816,6 +839,7 @@ if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
   if (locationbarVisible) {
 // locationBar is on top of toolBar, hide toolBar
     // put locationBar at the bottom
+
 
     // webView take up whole height less locationBar height
 CGRect webViewBounds = self.view.bounds;
