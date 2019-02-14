@@ -167,7 +167,7 @@ if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelega
 
 [self.inAppBrowserViewController showLocationBar:browserOptions.location];
 [self.inAppBrowserViewController showToolBar:browserOptions.toolbar :browserOptions.toolbarposition];
-[self.inAppBrowserViewController changeViewSize:browserOptions.height :browserOptions.width];
+[self.inAppBrowserViewController changeViewSize:[[NSNumber browserOptions.height] floatValue] :[[NSNumber browserOptions.width] floatValue]];
 if (browserOptions.closebuttoncaption != nil) {
 [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption];
 }
