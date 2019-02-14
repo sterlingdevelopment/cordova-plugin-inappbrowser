@@ -778,18 +778,21 @@ webViewBounds.size.height -= TOOLBAR_HEIGHT;
 
   CGRect webViewBounds = self.view.bounds;
 
-  if(height > 0){
 
-    webViewBounds.size.height = webViewBounds.size.height * (height / 100);
+if(height > 0){
 
-  }
-  if(width > 0){
+  webViewBounds.size.height = webViewBounds.size.height * (height / 100);
 
-    webViewBounds.size.width = webViewBounds.size.width * (width / 100);
 
-  }
+}
+if(width > 0){
 
-  [self setWebViewFrame:webViewBounds];
+  webViewBounds.size.width = webViewBounds.size.width * (width / 100);
+
+}
+
+[self setWebViewFrame:webViewBounds];
+
 
 }
 
