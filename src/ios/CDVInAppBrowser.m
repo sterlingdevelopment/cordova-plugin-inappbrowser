@@ -167,7 +167,7 @@ if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelega
 
 [self.inAppBrowserViewController showLocationBar:browserOptions.location];
 [self.inAppBrowserViewController showToolBar:browserOptions.toolbar :browserOptions.toolbarposition];
-[self.inAppBrowserViewController changeViewSize:[[NSNumber browserOptions.height] floatValue] :[[NSNumber browserOptions.width] floatValue]];
+[self.inAppBrowserViewController changeViewSize:browserOptions.height :browserOptions.width];
 if (browserOptions.closebuttoncaption != nil) {
 [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption];
 }
@@ -773,7 +773,7 @@ webViewBounds.size.height -= TOOLBAR_HEIGHT;
 }
 
 
-- (void)changeViewSize:(float) height : (float) width
+- (void)changeViewSize:(CGFloat) height : (CGFloat) width
 {
 
   CGRect webViewBounds = self.view.bounds;
