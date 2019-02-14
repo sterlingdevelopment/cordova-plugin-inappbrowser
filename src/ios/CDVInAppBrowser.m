@@ -773,7 +773,7 @@ webViewBounds.size.height -= TOOLBAR_HEIGHT;
 }
 
 
-- (void)changeViewSize:(NSInteger*) height : (NSInteger*) width
+- (void)changeViewSize:(float) height : (float) width
 {
 
   CGRect webViewBounds = self.view.bounds;

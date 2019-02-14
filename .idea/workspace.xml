@@ -23,21 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="946">
-              <caret line="106" column="140" selection-start-line="106" selection-start-column="126" selection-end-line="106" selection-end-column="140" />
+            <state relative-caret-position="691">
+              <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CDVInAppBrowser.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CDVInAppBrowser.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="169" column="91" selection-start-line="169" selection-start-column="91" selection-end-line="169" selection-end-column="91" />
+            <state relative-caret-position="100">
+              <caret line="776" column="0" selection-start-line="775" selection-start-column="0" selection-end-line="776" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +81,8 @@
         <option value="$PROJECT_DIR$/www/inappbrowser.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/android/InAppBrowser.java" />
-        <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.h" />
         <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.m" />
+        <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.h" />
       </list>
     </option>
   </component>
@@ -740,12 +740,12 @@
       <workItem from="1508343877070" duration="1000" />
       <workItem from="1509118163864" duration="95000" />
       <workItem from="1512916203586" duration="5000" />
-      <workItem from="1550098460667" duration="2383000" />
+      <workItem from="1550098460667" duration="2902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18760000" />
+    <option name="totallyTimeSpent" value="19279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -813,18 +813,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
+    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="106" column="140" selection-start-line="106" selection-start-column="126" selection-end-line="106" selection-end-column="140" />
+        <state relative-caret-position="100">
+          <caret line="776" column="0" selection-start-line="775" selection-start-column="0" selection-end-line="776" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
+    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="169" column="91" selection-start-line="169" selection-start-column="91" selection-end-line="169" selection-end-column="91" />
+        <state relative-caret-position="691">
+          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
           <folding />
         </state>
       </provider>
