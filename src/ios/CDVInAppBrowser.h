@@ -55,8 +55,8 @@
 
 @property (nonatomic, copy) NSString* presentationstyle;
 @property (nonatomic, copy) NSString* transitionstyle;
-@property (nonatomic, assign) NSNumber height;
-@property (nonatomic, assign) NSNumber width;
+@property (nonatomic, assign) NSInteger* height;
+@property (nonatomic, assign) NSInteger* width;
 
 @property (nonatomic, assign) BOOL enableviewportscale;
 @property (nonatomic, assign) BOOL mediaplaybackrequiresuseraction;
