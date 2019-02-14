@@ -55,8 +55,8 @@
 
 @property (nonatomic, copy) NSString* presentationstyle;
 @property (nonatomic, copy) NSString* transitionstyle;
-@property (nonatomic, assign) NSInteger* height;
-@property (nonatomic, assign) NSInteger* width;
+@property (nonatomic, assign) NSNumber height;
+@property (nonatomic, assign) NSNumber width;
 
 @property (nonatomic, assign) BOOL enableviewportscale;
 @property (nonatomic, assign) BOOL mediaplaybackrequiresuseraction;
@@ -102,7 +102,7 @@
 - (void)navigateToNew:(NSURL*)url withHeaders:(NSString*)headers;
 - (void)showLocationBar:(BOOL)show;
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition;
-- (void)changeViewSize:(float) height : (float) width
+- (void)changeViewSize:(float) height : (float) width;
 - (void)setCloseButtonTitle:(NSString*)title;
 
 - (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions;
