@@ -33,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CDVInAppBrowser.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CDVInAppBrowser.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18585">
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inappbrowser.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inappbrowser.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/inappbrowser.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="285">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -791,12 +791,12 @@
       <workItem from="1550098460667" duration="6827000" />
       <workItem from="1550274760962" duration="587000" />
       <workItem from="1550605989711" duration="1392000" />
-      <workItem from="1550687598358" duration="848000" />
+      <workItem from="1550687598358" duration="1009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26031000" />
+    <option name="totallyTimeSpent" value="26192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -966,18 +966,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/inappbrowser.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18585">
           <caret line="1239" column="1" selection-start-line="1239" selection-start-column="1" selection-end-line="1239" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/inappbrowser.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding />
         </state>
       </provider>
