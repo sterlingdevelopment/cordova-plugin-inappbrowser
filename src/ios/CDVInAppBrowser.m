@@ -68,6 +68,8 @@ under the License.
 return;
 }
 
+NSLog(@"Closing the Stupid flipping Browser");
+
 // Things are cleaned up in browserExit.
 [self.inAppBrowserViewController close];
 }
@@ -89,6 +91,12 @@ return NO;
   NSString* target = [command argumentAtIndex:1 withDefault:kInAppBrowserTargetSelf];
   NSString* options = [command argumentAtIndex:2 withDefault:@"" andClass:[NSString class]];
 NSString* headers = [command argumentAtIndex:3 withDefault:@"" andClass:[NSString class]];
+NSString* cbOptions = [command argumentAtIndex:4 withDefault:@"" andClass:[NSString class]];
+
+NSLog(@"Imcoming stupid headers: %@", target);
+NSLog(@"Imcoming stupid headers: %@", options);
+NSLog(@"Imcoming stupid headers: %@", headers);
+NSLog(@"Imcoming stupid headers: %@", command);
 
 self.callbackId = command.callbackId;
 
@@ -164,7 +172,6 @@ if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelega
   self.inAppBrowserViewController.orientationDelegate = (UIViewController <CDVScreenOrientationDelegate>*)self.viewController;
 }
 }
-
 [self.inAppBrowserViewController showLocationBar:browserOptions.location];
 [self.inAppBrowserViewController showToolBar:browserOptions.toolbar :browserOptions.toolbarposition];
 [self.inAppBrowserViewController changeViewSize:browserOptions.height :browserOptions.width];
@@ -205,6 +212,7 @@ if (browserOptions.disallowoverscroll) {
 }
 }
 }
+
 
 // UIWebView options
 self.inAppBrowserViewController.webView.scalesPageToFit = browserOptions.enableviewportscale;
@@ -652,6 +660,15 @@ self.addressLabel.textAlignment = NSTextAlignmentLeft;
 self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
 self.addressLabel.userInteractionEnabled = NO;
 
+    //should create custom textfield for the Toolbar
+CGRect textFrame = CGRectMake(0.0, toolbarY, 200.0, TOOLBAR_HEIGHT-10);
+UITextField* textBoxField = [[UITextField alloc] initWithFrame:textFrame];
+textBoxField.textColor = [UIColor blueColor];
+textBoxField.borderStyle = UITextBorderStyleRoundedRect;
+
+UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textBoxField];
+
+
 NSString* frontArrowString = NSLocalizedString(@"►", nil); // create arrow from Unicode char
 self.forwardButton = [[UIBarButtonItem alloc] initWithTitle:frontArrowString style:UIBarButtonItemStylePlain target:self action:@selector(goForward:)];
 self.forwardButton.enabled = YES;
@@ -662,7 +679,7 @@ self.backButton = [[UIBarButtonItem alloc] initWithTitle:backArrowString style:U
 self.backButton.enabled = YES;
 self.backButton.imageInsets = UIEdgeInsetsZero;
 
-[self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+[self.toolbar setItems:@[textBox, self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
 
 self.view.backgroundColor = [UIColor grayColor];
 [self.view addSubview:self.toolbar];
@@ -703,7 +720,17 @@ self.backButton = [[UIBarButtonItem alloc] initWithTitle:backArrowString style:U
 self.backButton.enabled = YES;
 self.backButton.imageInsets = UIEdgeInsetsZero;
 
-[self.toolbar setItems:@[self.closeButton,flexibleSpaceButton, self.backButton,fixedSpaceButton, self.forwardButton]];
+    //should create custom textfield for the Toolbar
+CGRect textFrame = CGRectMake(0.0, 0.0, 200.0, TOOLBAR_HEIGHT-10);
+UITextField* textBoxField = [[UITextField alloc] initWithFrame:textFrame];
+textBoxField.textColor = [UIColor blueColor];
+textBoxField.borderStyle = UITextBorderStyleRoundedRect;
+
+UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textBoxField];
+
+
+
+[self.toolbar setItems:@[textBox, self.closeButton,flexibleSpaceButton, self.backButton,fixedSpaceButton, self.forwardButton]];
 
 }
 
@@ -779,25 +806,25 @@ webViewBounds.size.height -= TOOLBAR_HEIGHT;
   CGRect webViewBounds = self.view.bounds;
 
 
-if(height > 0){
+  if(height > 0){
 
-  webViewBounds.size.height = webViewBounds.size.height * (height / 100);
+    webViewBounds.size.height = webViewBounds.size.height * (height / 100);
+
+
+  }
+  if(width > 0){
+
+    webViewBounds.size.width = webViewBounds.size.width * (width / 100);
+
+  }
+
+  [self setWebViewFrame:webViewBounds];
 
 
 }
-if(width > 0){
-
-  webViewBounds.size.width = webViewBounds.size.width * (width / 100);
-
-}
-
-[self setWebViewFrame:webViewBounds];
 
 
-}
-
-
-- (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition
+    - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition
 {
   CGRect toolbarFrame = self.toolbar.frame;
   CGRect locationbarFrame = self.addressLabel.frame;
@@ -882,10 +909,12 @@ self.addressLabel.frame = locationbarFrame;
 
     - (void)close
 {
-  if ([self.currentURL.absoluteString  rangeOfString:@"QualifyCustomer"].location == NSNotFound) {
+  NSLog(@"Attempting to Close the Browser: %@", self.callbackOptions);
+if ([self.currentURL.absoluteString  rangeOfString:@"QualifyCustomer"].location == NSNotFound) {
 
 [CDVUserAgentUtil releaseLock:&_userAgentLockToken];
 self.currentURL = nil;
+
 
 
 if ((self.navigationDelegate != nil) && [self.navigationDelegate respondsToSelector:@selector(browserExit)]) {
@@ -906,6 +935,7 @@ __weak UIViewController* weakSelf = self;
 }else{
   NSLog(@"Closing URL: %@", self.currentURL);
 }
+
 }
 
 - (void)navigateTo:(NSURL*)url

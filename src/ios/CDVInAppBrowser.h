@@ -29,12 +29,21 @@
 
 @class CDVInAppBrowserViewController;
 
+@interface CDVInAppBrowserCallbackOptions : NSObject {}
+@property (nonatomic, assign) NSString* callbackHeaders;
+@property (nonatomic, assign) NSString* callbackUrl;
+
++ (CDVInAppBrowserCallbackOptions*)parseOptions:(NSString*)callbackOptions;
+
+@end
+
 @interface CDVInAppBrowser : CDVPlugin {
 }
 
 @property (nonatomic, retain) CDVInAppBrowserViewController* inAppBrowserViewController;
 @property (nonatomic, copy) NSString* callbackId;
 @property (nonatomic, copy) NSRegularExpression *callbackIdPattern;
+@property (nonatomic, assign) CDVInAppBrowserCallbackOptions* callbackOptions;
 
 - (void)open:(CDVInvokedUrlCommand*)command;
 - (void)close:(CDVInvokedUrlCommand*)command;
@@ -90,12 +99,15 @@
 @property (nonatomic, strong) IBOutlet UILabel* addressLabel;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* backButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* forwardButton;
+@property (nonatomic, weak)   IBOutlet UITextField* textFieldItem;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* spinner;
 @property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
 
 @property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 @property (nonatomic, weak) CDVInAppBrowser* navigationDelegate;
 @property (nonatomic) NSURL* currentURL;
+@property (nonatomic) NSString* passedOptions;
+@property (nonatomic, assign) CDVInAppBrowserCallbackOptions* callbackOptions;
 
 - (void)close;
 - (void)navigateTo:(NSURL*)url;
