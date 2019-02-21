@@ -29,13 +29,6 @@
 
 @class CDVInAppBrowserViewController;
 
-@interface CDVInAppBrowserCallbackOptions : NSObject {}
-@property (nonatomic, assign) NSString* callbackHeaders;
-@property (nonatomic, assign) NSString* callbackUrl;
-
-+ (CDVInAppBrowserCallbackOptions*)parseOptions:(NSString*)callbackOptions;
-
-@end
 
 @interface CDVInAppBrowser : CDVPlugin {
 }
@@ -43,7 +36,6 @@
 @property (nonatomic, retain) CDVInAppBrowserViewController* inAppBrowserViewController;
 @property (nonatomic, copy) NSString* callbackId;
 @property (nonatomic, copy) NSRegularExpression *callbackIdPattern;
-@property (nonatomic, assign) CDVInAppBrowserCallbackOptions* callbackOptions;
 
 - (void)open:(CDVInvokedUrlCommand*)command;
 - (void)close:(CDVInvokedUrlCommand*)command;
@@ -79,12 +71,25 @@
 
 @end
 
-@interface CDVInAppBrowserViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate>{
+@interface CDVInAppBrowserCallbackOptions : NSObject {}
+@property (nonatomic, strong) NSString* callbackurl;
+@property (nonatomic, strong) NSString* callbackusername;
+@property (nonatomic, strong) NSString* callbacktoken;
+@property (nonatomic, strong) NSString* callbackpassword;
+@property (nonatomic, strong) NSString* callbackid;
+
++ (CDVInAppBrowserCallbackOptions*)parseCBOptions:(NSString*)callbackOptions;
+
+@end
+
+@interface CDVInAppBrowserViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate,UITextFieldDelegate>{
     @private
     NSString* _userAgent;
     NSString* _prevUserAgent;
     NSInteger _userAgentLockToken;
     CDVInAppBrowserOptions *_browserOptions;
+
+
 
 #ifdef __CORDOVA_4_0_0
     CDVUIWebViewDelegate* _webViewDelegate;
@@ -99,15 +104,16 @@
 @property (nonatomic, strong) IBOutlet UILabel* addressLabel;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* backButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* forwardButton;
-@property (nonatomic, weak)   IBOutlet UITextField* textFieldItem;
+@property (copy, nullable)   IBOutlet UITextField* textFieldItem;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* spinner;
 @property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
 
 @property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 @property (nonatomic, weak) CDVInAppBrowser* navigationDelegate;
+@property (nonatomic, strong) CDVInAppBrowserCallbackOptions* callbackOptions;
 @property (nonatomic) NSURL* currentURL;
 @property (nonatomic) NSString* passedOptions;
-@property (nonatomic, assign) CDVInAppBrowserCallbackOptions* callbackOptions;
+@property (copy, nullable) NSString* textBoxValue;
 
 - (void)close;
 - (void)navigateTo:(NSURL*)url;
@@ -116,14 +122,9 @@
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition;
 - (void)changeViewSize:(CGFloat) height : (CGFloat) width;
 - (void)setCloseButtonTitle:(NSString*)title;
-
+- (void)sendDatatoAPI:(CDVInAppBrowserCallbackOptions*)withAPIInfo;
+- (void)textFieldDidEndEditing:(UITextField *)textField;
 - (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions;
-
-@end
-
-@interface CDVInAppBrowserNavigationController : UINavigationController
-
-@property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 
 @end
 

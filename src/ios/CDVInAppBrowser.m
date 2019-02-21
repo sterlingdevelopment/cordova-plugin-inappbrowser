@@ -39,7 +39,6 @@ under the License.
   UIWebView *myView;
   NSInteger _previousStatusBarStyle;
 
-
 }
     @end
 
@@ -93,10 +92,7 @@ return NO;
 NSString* headers = [command argumentAtIndex:3 withDefault:@"" andClass:[NSString class]];
 NSString* cbOptions = [command argumentAtIndex:4 withDefault:@"" andClass:[NSString class]];
 
-NSLog(@"Imcoming stupid headers: %@", target);
-NSLog(@"Imcoming stupid headers: %@", options);
-NSLog(@"Imcoming stupid headers: %@", headers);
-NSLog(@"Imcoming stupid headers: %@", command);
+CDVInAppBrowserCallbackOptions* bo = [CDVInAppBrowserCallbackOptions parseCBOptions:cbOptions];
 
 self.callbackId = command.callbackId;
 
@@ -117,7 +113,7 @@ if ([target isEqualToString:kInAppBrowserTargetSelf]) {
 } else if ([target isEqualToString:kInAppBrowserTargetSystem]) {
 [self openInSystem:absoluteUrl];
 } else { // _blank or anything else
-[self openInInAppBrowser:absoluteUrl withOptions:options withHeaders:headers];
+[self openInInAppBrowser:absoluteUrl withOptions:options withHeaders:headers withCallbackOptions:bo];
 }
 
 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -129,9 +125,10 @@ pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)openInInAppBrowser:(NSURL*)url withOptions:(NSString*)options withHeaders:(NSString*)headers
+- (void)openInInAppBrowser:(NSURL*)url withOptions:(NSString*)options withHeaders:(NSString*)headers withCallbackOptions:(CDVInAppBrowserCallbackOptions*)callbackOptions
 {
   CDVInAppBrowserOptions* browserOptions = [CDVInAppBrowserOptions parseOptions:options];
+
 
 if (browserOptions.clearcache) {
   NSHTTPCookie *cookie;
@@ -156,6 +153,7 @@ if (browserOptions.clearsessioncache) {
 }
 
 if (self.inAppBrowserViewController == nil) {
+
   NSString* userAgent = [CDVUserAgentUtil originalUserAgent];
 NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
 NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
@@ -215,6 +213,14 @@ if (browserOptions.disallowoverscroll) {
 
 
 // UIWebView options
+
+if(callbackOptions){
+
+  self.inAppBrowserViewController.callbackOptions = callbackOptions;
+
+}
+
+NSLog(@"I don't know what I am doing: %@", self.inAppBrowserViewController.callbackOptions.callbackurl);
 self.inAppBrowserViewController.webView.scalesPageToFit = browserOptions.enableviewportscale;
 self.inAppBrowserViewController.webView.mediaPlaybackRequiresUserAction = browserOptions.mediaplaybackrequiresuseraction;
 self.inAppBrowserViewController.webView.allowsInlineMediaPlayback = browserOptions.allowinlinemediaplayback;
@@ -540,6 +546,12 @@ _previousStatusBarStyle = -1; // this value was reset before reapplying it. caus
 
     @synthesize currentURL;
 
+-(void)textFieldDidEndEditing:(UITextField *)textFieldItem
+{
+  NSLog(@"Finished with the box: %@", [textFieldItem text]);
+self.textBoxValue = [textFieldItem text];
+}
+
 - (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions
 {
   self = [super init];
@@ -662,11 +674,12 @@ self.addressLabel.userInteractionEnabled = NO;
 
     //should create custom textfield for the Toolbar
 CGRect textFrame = CGRectMake(0.0, toolbarY, 200.0, TOOLBAR_HEIGHT-10);
-UITextField* textBoxField = [[UITextField alloc] initWithFrame:textFrame];
-textBoxField.textColor = [UIColor blueColor];
-textBoxField.borderStyle = UITextBorderStyleRoundedRect;
+UITextField* textFieldItem = [[UITextField alloc] initWithFrame:textFrame];
+textFieldItem.textColor = [UIColor blueColor];
+textFieldItem.borderStyle = UITextBorderStyleRoundedRect;
+textFieldItem.delegate = self;
+UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textFieldItem];
 
-UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textBoxField];
 
 
 NSString* frontArrowString = NSLocalizedString(@"►", nil); // create arrow from Unicode char
@@ -686,6 +699,7 @@ self.view.backgroundColor = [UIColor grayColor];
 [self.view addSubview:self.addressLabel];
 [self.view addSubview:self.spinner];
 }
+
 
 - (void) setWebViewFrame : (CGRect) frame {
   NSLog(@"Setting the WebView's frame to %@", NSStringFromCGRect(frame));
@@ -722,11 +736,11 @@ self.backButton.imageInsets = UIEdgeInsetsZero;
 
     //should create custom textfield for the Toolbar
 CGRect textFrame = CGRectMake(0.0, 0.0, 200.0, TOOLBAR_HEIGHT-10);
-UITextField* textBoxField = [[UITextField alloc] initWithFrame:textFrame];
-textBoxField.textColor = [UIColor blueColor];
-textBoxField.borderStyle = UITextBorderStyleRoundedRect;
-
-UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textBoxField];
+UITextField* textFieldItem = [[UITextField alloc] initWithFrame:textFrame];
+textFieldItem.textColor = [UIColor blueColor];
+textFieldItem.borderStyle = UITextBorderStyleRoundedRect;
+textFieldItem.delegate = self;
+UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textFieldItem];
 
 
 
@@ -906,15 +920,103 @@ self.addressLabel.frame = locationbarFrame;
     - (BOOL)prefersStatusBarHidden {
   return NO;
 }
-
-    - (void)close
+    - (id)cleanJsonToObject:(id)data
 {
-  NSLog(@"Attempting to Close the Browser: %@", self.callbackOptions);
+  NSError* error;
+  if (data == (id)[NSNull null])
+  {
+    return [[NSObject alloc] init];
+}
+id jsonObject;
+if ([data isKindOfClass:[NSData class]])
+{
+  jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+} else
+{
+  jsonObject = data;
+}
+if ([jsonObject isKindOfClass:[NSArray class]])
+{
+  NSMutableArray *array = [jsonObject mutableCopy];
+for (int i = (int)array.count-1; i >= 0; i--)
+{
+  id a = array[i];
+  if (a == (id)[NSNull null])
+  {
+[array removeObjectAtIndex:i];
+} else
+{
+  array[i] = [self cleanJsonToObject:a];
+}
+}
+return array;
+} else if ([jsonObject isKindOfClass:[NSDictionary class]])
+{
+  NSMutableDictionary *dictionary = [jsonObject mutableCopy];
+for(NSString *key in [dictionary allKeys])
+{
+  id d = dictionary[key];
+  if (d == (id)[NSNull null])
+  {
+    dictionary[key] = @"";
+} else
+{
+  dictionary[key] = [self cleanJsonToObject:d];
+}
+}
+return dictionary;
+} else
+{
+  return jsonObject;
+}
+}
+
+-(void)sendDatatoAPI:(CDVInAppBrowserCallbackOptions*)withAPIInfo
+{
+
+  NSDictionary *jsonBodyData = @{ @"entity-id":withAPIInfo.callbackid, @"message-type":@"legacy-complete", @"message": @{ @"legacy-id":self.textBoxValue} };
+NSData *postData = [NSJSONSerialization dataWithJSONObject:jsonBodyData options:kNilOptions error:nil];
+
+
+//legacy-id Needs to be the input value from the textbox.
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+[request setURL:[NSURL URLWithString:withAPIInfo.callbackurl]];
+[request setHTTPMethod:@"POST"];
+[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+[request setHTTPBody:postData];
+[request addValue:withAPIInfo.callbacktoken forHTTPHeaderField:@"Authorization"];
+
+NSURLResponse *response;
+
+NSLog(@"Raw Response: %@", response);
+
+NSError *err;
+NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+
+NSString *str=[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+NSLog(@"str : %@",str);
+NSLog(@"sending data: %@", request);
+NSLog(@"Calling url: %@", withAPIInfo.callbackurl);
+
+NSMutableDictionary *dict6 = [self cleanJsonToObject:responseData];
+NSLog(@"str : %@",dict6);
+}
+
+- (void)close
+{
+  NSLog(@"WHAT HAVE I DONE: %@", self.callbackOptions.callbackurl);
+
+if(self.callbackOptions.callbackurl){
+
+[self sendDatatoAPI:self.callbackOptions];
+
+}
+
 if ([self.currentURL.absoluteString  rangeOfString:@"QualifyCustomer"].location == NSNotFound) {
 
 [CDVUserAgentUtil releaseLock:&_userAgentLockToken];
 self.currentURL = nil;
-
 
 
 if ((self.navigationDelegate != nil) && [self.navigationDelegate respondsToSelector:@selector(browserExit)]) {
@@ -1198,6 +1300,70 @@ return obj;
 }
 
 @end
+
+    @implementation CDVInAppBrowserCallbackOptions
+
+    - (id)init
+{
+  if (self = [super init]) {
+// default values
+self.callbackid = @"";
+self.callbackurl = @"";
+self.callbacktoken = @"";
+self.callbackpassword = @"";
+self.callbackusername = @"";
+}
+
+return self;
+}
+
++ (CDVInAppBrowserCallbackOptions*)parseCBOptions:(NSString*)options
+{
+  CDVInAppBrowserCallbackOptions* obj = [[CDVInAppBrowserCallbackOptions alloc]init];
+
+// NOTE: this parsing does not handle quotes within values
+NSArray* pairs = [options componentsSeparatedByString:@","];
+
+// parse keys and values, set the properties
+for (NSString* pair in pairs) {
+
+  NSLog(@"Parsing Pair: %@", pair);
+
+NSArray* keyvalue = [pair componentsSeparatedByString:@"="];
+
+if ([keyvalue count] == 2) {
+  NSString* key = [[keyvalue objectAtIndex:0] lowercaseString];
+NSString* value = [keyvalue objectAtIndex:1];
+NSString* value_lc = [value lowercaseString];
+
+NSLog(@"Parsing the key: %@", key);
+NSLog(@"Parsing the value: %@", value);
+
+BOOL isBoolean = [value_lc isEqualToString:@"yes"] || [value_lc isEqualToString:@"no"];
+NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+[numberFormatter setAllowsFloats:YES];
+BOOL isNumber = [numberFormatter numberFromString:value_lc] != nil;
+
+    // set the property according to the key name
+if ([obj respondsToSelector:NSSelectorFromString(key)]) {
+  NSLog(@"Setting Value of OBJ: %@", value);
+if (isNumber) {
+[obj setValue:[numberFormatter numberFromString:value_lc] forKey:key];
+} else if (isBoolean) {
+[obj setValue:[NSNumber numberWithBool:[value_lc isEqualToString:@"yes"]] forKey:key];
+} else {
+[obj setValue:value forKey:key];
+}
+}
+}
+}
+
+
+return obj;
+}
+
+@end
+
 
     @implementation CDVInAppBrowserNavigationController : UINavigationController
 
