@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="125" column="30" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="30" />
+            <state relative-caret-position="973">
+              <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -53,11 +53,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1433">
-              <caret line="1123" column="37" selection-start-line="1123" selection-start-column="17" selection-end-line="1123" selection-end-column="37" />
+              <caret line="1123" column="37" selection-start-line="1123" selection-start-column="37" selection-end-line="1123" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDVInAppBrowser.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/osx/CDVInAppBrowser.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,8 +113,8 @@
         <option value="$PROJECT_DIR$/www/inappbrowser.js" />
         <option value="$PROJECT_DIR$/www/inappbrowser.css" />
         <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.m" />
-        <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.h" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/ios/CDVInAppBrowser.h" />
       </list>
     </option>
   </component>
@@ -288,10 +298,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osx" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1066,12 +1072,12 @@
       <workItem from="1550098460667" duration="6827000" />
       <workItem from="1550274760962" duration="587000" />
       <workItem from="1550605989711" duration="1392000" />
-      <workItem from="1550687598358" duration="2562000" />
+      <workItem from="1550687598358" duration="2702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27745000" />
+    <option name="totallyTimeSpent" value="27885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -1241,14 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="125" column="30" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -1268,7 +1266,23 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1433">
-          <caret line="1123" column="37" selection-start-line="1123" selection-start-column="17" selection-end-line="1123" selection-end-column="37" />
+          <caret line="1123" column="37" selection-start-line="1123" selection-start-column="37" selection-end-line="1123" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/osx/CDVInAppBrowser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ios/CDVInAppBrowser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="973">
+          <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
           <folding />
         </state>
       </provider>

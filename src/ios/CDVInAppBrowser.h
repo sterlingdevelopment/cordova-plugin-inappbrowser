@@ -128,3 +128,8 @@
 
 @end
 
+@interface CDVInAppBrowserNavigationController : UINavigationController
+
+@property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
+
+@end
