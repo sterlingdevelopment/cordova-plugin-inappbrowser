@@ -1329,7 +1329,7 @@ for (NSString* pair in pairs) {
 
   NSLog(@"Parsing Pair: %@", pair);
 
-NSArray* keyvalue = [pair componentsSeparatedByString:@"="];
+NSArray* keyvalue = [pair componentsSeparatedByString:@"~"];
 
 if ([keyvalue count] == 2) {
   NSString* key = [[keyvalue objectAtIndex:0] lowercaseString];
