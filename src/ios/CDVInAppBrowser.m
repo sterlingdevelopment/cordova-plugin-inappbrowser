@@ -220,7 +220,6 @@ if(callbackOptions){
 
 }
 
-NSLog(@"I don't know what I am doing: %@", self.inAppBrowserViewController.callbackOptions.callbackurl);
 self.inAppBrowserViewController.webView.scalesPageToFit = browserOptions.enableviewportscale;
 self.inAppBrowserViewController.webView.mediaPlaybackRequiresUserAction = browserOptions.mediaplaybackrequiresuseraction;
 self.inAppBrowserViewController.webView.allowsInlineMediaPlayback = browserOptions.allowinlinemediaplayback;
@@ -546,6 +545,11 @@ _previousStatusBarStyle = -1; // this value was reset before reapplying it. caus
 
     @synthesize currentURL;
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+[textField resignFirstResponder];
+return YES;
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textFieldItem
 {
   NSLog(@"Finished with the box: %@", [textFieldItem text]);
@@ -673,13 +677,6 @@ self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
 self.addressLabel.userInteractionEnabled = NO;
 
     //should create custom textfield for the Toolbar
-CGRect textFrame = CGRectMake(0.0, toolbarY, 200.0, TOOLBAR_HEIGHT-10);
-UITextField* textFieldItem = [[UITextField alloc] initWithFrame:textFrame];
-textFieldItem.textColor = [UIColor blueColor];
-textFieldItem.borderStyle = UITextBorderStyleRoundedRect;
-textFieldItem.delegate = self;
-UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textFieldItem];
-
 
 
 NSString* frontArrowString = NSLocalizedString(@"►", nil); // create arrow from Unicode char
@@ -692,7 +689,24 @@ self.backButton = [[UIBarButtonItem alloc] initWithTitle:backArrowString style:U
 self.backButton.enabled = YES;
 self.backButton.imageInsets = UIEdgeInsetsZero;
 
+NSLog(@"The value of showtextfield: %d", _browserOptions.showtextfield);
+if(_browserOptions.showtextfield){
+  CGRect textFrame = CGRectMake(0.0, toolbarY, 200.0, TOOLBAR_HEIGHT-10);
+UITextField* textFieldItem = [[UITextField alloc] initWithFrame:textFrame];
+textFieldItem.textColor = [UIColor blueColor];
+textFieldItem.borderStyle = UITextBorderStyleRoundedRect;
+textFieldItem.delegate = self;
+textFieldItem.returnKeyType = UIReturnKeyDone;
+UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textFieldItem];
 [self.toolbar setItems:@[textBox, self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+
+}else{
+[self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+
+}
+
+
+
 
 self.view.backgroundColor = [UIColor grayColor];
 [self.view addSubview:self.toolbar];
@@ -734,17 +748,24 @@ self.backButton = [[UIBarButtonItem alloc] initWithTitle:backArrowString style:U
 self.backButton.enabled = YES;
 self.backButton.imageInsets = UIEdgeInsetsZero;
 
-    //should create custom textfield for the Toolbar
+NSLog(@"The value of showtextfield: %d", _browserOptions.showtextfield);
+if(_browserOptions.showtextfield){
+//should create custom textfield for the Toolbar
 CGRect textFrame = CGRectMake(0.0, 0.0, 200.0, TOOLBAR_HEIGHT-10);
 UITextField* textFieldItem = [[UITextField alloc] initWithFrame:textFrame];
 textFieldItem.textColor = [UIColor blueColor];
 textFieldItem.borderStyle = UITextBorderStyleRoundedRect;
 textFieldItem.delegate = self;
+textFieldItem.returnKeyType = UIReturnKeyDone;
 UIBarButtonItem *textBox = [[UIBarButtonItem alloc] initWithCustomView:textFieldItem];
 
 
+[self.toolbar setItems:@[textBox, self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
 
-[self.toolbar setItems:@[textBox, self.closeButton,flexibleSpaceButton, self.backButton,fixedSpaceButton, self.forwardButton]];
+}else{
+[self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+
+}
 
 }
 
@@ -974,9 +995,12 @@ return dictionary;
 -(void)sendDatatoAPI:(CDVInAppBrowserCallbackOptions*)withAPIInfo
 {
 
-  NSDictionary *jsonBodyData = @{ @"entity-id":withAPIInfo.callbackid, @"message-type":@"legacy-complete", @"message": @{ @"legacy-id":self.textBoxValue} };
+  if(self.textBoxValue){
+    NSDictionary *jsonBodyData = @{ @"entity-id":withAPIInfo.callbackid, @"message-type":@"legacy-complete", @"message": @{ @"legacy-id":self.textBoxValue} };
 NSData *postData = [NSJSONSerialization dataWithJSONObject:jsonBodyData options:kNilOptions error:nil];
 
+NSLog(@"Sending Token to the API: %@", withAPIInfo.callbacktoken);
+NSLog(@"Sending ID to the API: %@", withAPIInfo.callbackid);
 
 //legacy-id Needs to be the input value from the textbox.
 
@@ -1001,13 +1025,16 @@ NSLog(@"Calling url: %@", withAPIInfo.callbackurl);
 
 NSMutableDictionary *dict6 = [self cleanJsonToObject:responseData];
 NSLog(@"str : %@",dict6);
+
+}
+
 }
 
 - (void)close
 {
   NSLog(@"WHAT HAVE I DONE: %@", self.callbackOptions.callbackurl);
 
-if(self.callbackOptions.callbackurl){
+if(self.callbackOptions.callbackurl && _browserOptions.showtextfield){
 
 [self sendDatatoAPI:self.callbackOptions];
 
@@ -1272,6 +1299,8 @@ NSArray* pairs = [options componentsSeparatedByString:@","];
 // parse keys and values, set the properties
 for (NSString* pair in pairs) {
   NSArray* keyvalue = [pair componentsSeparatedByString:@"="];
+
+
 
 if ([keyvalue count] == 2) {
   NSString* key = [[keyvalue objectAtIndex:0] lowercaseString];

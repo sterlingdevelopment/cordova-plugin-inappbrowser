@@ -66,6 +66,8 @@
 @property (nonatomic, assign) BOOL suppressesincrementalrendering;
 @property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, assign) BOOL disallowoverscroll;
+@property (nonatomic, assign) BOOL showtextfield;
+
 
 + (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
 
